@@ -1,7 +1,6 @@
 package org.graylog.storage.elasticsearch7;
 
 import com.github.joschi.jadconfig.util.Duration;
-import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.Streams;
 import org.graylog.shaded.elasticsearch7.org.apache.http.HttpHost;
 import org.graylog.shaded.elasticsearch7.org.elasticsearch.ElasticsearchException;
@@ -54,11 +53,6 @@ public class ElasticsearchClient {
                 );
 
         this.client = new RestHighLevelClient(restClientBuilder);
-    }
-
-    @VisibleForTesting
-    public ElasticsearchClient(RestHighLevelClient restHighLevelClient) {
-        this.client = restHighLevelClient;
     }
 
     public SearchResponse search(SearchRequest searchRequest, String errorMessage) {
